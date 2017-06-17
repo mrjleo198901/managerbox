@@ -48,7 +48,8 @@ app.use('/users', users);
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 })
-app.use('/api',passport.authenticate('jwt', { session: false }) ,require('./routes/clienteApi'));
+//app.use('/api',passport.authenticate('jwt', { session: false }) ,require('./routes/clienteApi'));
+app.use('/api',require('./routes/clienteApi'));
 app.use('/api', require('./routes/comprasApi'));
 app.use('/api', require('./routes/configuracionApi'));
 app.use('/api', require('./routes/detalleFacturaApi'));
