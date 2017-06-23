@@ -34,7 +34,8 @@ router.post('/authenticate', (req, res, next) => {
         }
 
         User.comparePass(password, user.password, (err, isMatch) => {
-            //console.log(isMatch);
+            console.log(isMatch);
+            console.log(user)
             if (err) throw err;
             if (isMatch) {
                 const token = jwt.sign(user, config.secret, {
