@@ -18,15 +18,103 @@
           </div>
           <!-- Tab panes -->
           <div class="tab-content tabs">
+
             <div role="tabpanel" contents="open">
-              <h3>Section 1</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada
-                lorem. Nullam faucibus lorem at eros consectetur lobortis.</p>
+              <h3>Apertura de tarjeta de cosumo</h3>
+              <div class="form-group">
+                <label for="numero" class="cols-sm-2 control-label">Numero de tarjeta</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
+                    <input [(ngModel)]="cardNumber" (ngModelChange)="onChange($event)" (click)="$event.target.select()" type="text" class="form-control"
+                      name="numero" id="numero" placeholder="Codigo unico de tarjeta" />
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span class="input-group-addon" id="basic-addon2"><i class="fa fa-times" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cedula" class="cols-sm-2 control-label">CI. Cliente</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input [(ngModel)]="cedula" maxlength="10" type="text" class="form-control" name="cedula" id="cedula" placeholder="CI. del cliente, sin guion (-)"
+                      onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    <span class="input-group-addon" id="basic-addon3"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <span class="input-group-addon" id="basic-addon4"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+              </div>
+
             </div>
+
             <div role="tabpanel" contents="close">
               <h3>Section 2</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada
                 lorem. Nullam faucibus lorem at eros consectetur lobortis.</p>
+
+              <button (click)="showDialog = !showDialog" class="btn">Open</button>
+
+              <app-dialog [(visible)]="showDialog" (visibleChange)="change($event)" #dialog="dialog">
+                <h3>
+                  Registrar Cliente
+                </h3>
+                <div class="form-group">
+                  <!-- ID Tarjeta -->
+                  <label class="cols-sm-2 control-label" for="card" style="display: inline-block">Tarjeta Nro.</label>
+                  <input type="text" [(ngModel)]="cardNumber" id="card" name="card" class="form-control input-sm">
+                </div>
+                <div class="form-group">
+                  <!-- Cedula -->
+                  <label class="cols-sm-2 control-label" for="ci" style="display: inline-block">Cedula</label>
+                  <input type="text" [(ngModel)]="cedula" id="ci" name="ci" placeholder="Cedula del cliente" class="form-control input-sm">
+                </div>
+                <div class="form-group">
+                  <!-- Nombre -->
+                  <label class="cols-sm-2 control-label" for="username">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente" class="form-control  input-sm">
+                </div>
+                <div class="form-group">
+                  <!-- Apellido -->
+                  <label class="cols-sm-2 control-label" for="apellido">Apellido</label>
+                  <input type="text" id="apellido" name="apellido" placeholder="Apellido del cliente" class="form-control  input-sm">
+                </div>
+                <div class="form-group">
+                  <!-- Telefono -->
+                  <label class="cols-sm-2 control-label" for="telefono">Telefono</label>
+                  <input type="text" id="telefono" name="telefono" placeholder="Telefono del cliente" class="form-control  input-sm">
+                </div>
+                <div class="form-group">
+                  <!-- E-mail -->
+                  <label class="control-label" for="email">E-mail</label>
+                  <input type="text" id="email" name="email" placeholder="Correo del cliente" class="form-control  input-sm">
+                </div>
+                <div class="form-group">
+                  <!-- Fecha de nacimiento -->
+                  <label class="control-label" for="fecha">Fecha de nacimiento</label>
+                  <!--<input type="text" id="fecha" name="fecha" placeholder="Cumpleaños del cliente" class="form-control  input-sm">-->
+                  <ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker>
+                </div>
+                <div class="form-group">
+                  <!-- Sexo -->
+                  <label class="control-label" for="fecha">Sexo</label>
+                  <input type="text" id="sexo" name="sexo" placeholder="Sexo del cliente" class="form-control  input-sm">
+                </div>
+                <br>
+                <!-- Button -->
+                <div class="form-group" style="text-align: center">
+                  <button class="btn btn-primary">Registrar</button>
+                  <button class="btn btn-default">Cancelar</button>
+                </div>
+
+
+
+              </app-dialog>
+
+
+
+
+
             </div>
           </div>
         </ngui-tab>

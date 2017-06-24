@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router'
 
@@ -18,6 +18,11 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { CardComponent } from './components/card/card.component';
 import { NguiTabModule } from '@ngui/tab';
+import { DialogComponent } from './components/dialogLogin/dialog.component';
+import { DatePickerModule } from 'ng2-datepicker';
+
+//import { Alert } from './ng2-modal-master/src/components/ng2-modal/alert'
+//import { Modal } from './ng2-modal-master/src/components/ng2-modal/modal'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,7 +42,8 @@ const appRoutes: Routes = [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    CardComponent
+    CardComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,9 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule,
-    NguiTabModule
+    NguiTabModule,
+    DatePickerModule 
+    //Angular2FontawesomeModule
   ],
   providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
