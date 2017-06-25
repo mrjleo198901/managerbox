@@ -1,0 +1,184 @@
+<h2 class="page-header">Facturacion</h2>
+
+<div class="container">
+    <!--left DIV-->
+    <div class="left" id="left">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="tab" role="tabpanel">
+                    <ngui-tab>
+                        <!-- Nav tabs -->
+                        <div class="tabs">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <div index="tipo1" (click)="changeTabTipoUno()">
+                                    <li role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">Tipo Producto 1</a></li>
+                                </div>
+                                <div index="tipo2" (click)="changeTabTipoDos()">
+                                    <li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Tipo Producto 2</a></li>
+                                </div>
+                                <div index="tipo3" (click)="changeTabTipoTres()">
+                                    <li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Tipo Producto 3</a></li>
+                                </div>
+                                <div index="tipo4" (click)="changeTabTipoCuatro()">
+                                    <li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Tipo Producto 4</a></li>
+                                </div>
+                            </ul>
+                        </div>
+                        <!-- Tab panes -->
+                        <div class="tab-content tabs">
+                            <!-- *******************TIPO 1***********************-->
+                            <div role="tabpanel" contents="tipo1">
+                                <h3>Tipo de producto 1</h3>
+                                <!-- Promociones -->
+                                <div class="form-group">
+                                    <label for="tabla" class="cols-sm-2 control-label">Promociones activas</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <!-- Tabla de Promociones -->
+                                            <div class="container">
+                                                <p>A continuacion se muestran las promociones activas, creadas por el admin:</p>
+                                                <table class="table table-striped" style="max-width: 46%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Tipo</th>
+                                                            <th style="text-align: center">Descripcion</th>
+                                                            <th style="text-align: center">Cantidad</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align: center">
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Promocion 1</td>
+                                                            <td>3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Promocion 2</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Promocion 3</td>
+                                                            <td>5</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- *******************CIERRE***********************-->
+                            <div role="tabpanel" contents="tipo2">
+                                <h3>Cierre de tarjera de consumo</h3>
+                                <!-- Verificacion de consumo -->
+                                <div class="form-group">
+                                    <label for="numeroS" class="cols-sm-2 control-label">Numero de tarjeta</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
+                                            <input [(ngModel)]="cardNumberS" (ngModelChange)="onChange($event)" (click)="$event.target.select()" type="text" class="form-control"
+                                                name="numeroS" id="numeroS" placeholder="Codigo unico de tarjeta" />
+                                            <span class="input-group-addon" id="basic-addon5"><i class="fa fa-check" aria-hidden="true"></i></span>
+                                            <span class="input-group-addon" id="basic-addon6"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cantidad de personas -->
+                                <div class="form-group">
+                                    <label for="cantPersonas" class="cols-sm-2 control-label">Cantidad de personas</label>
+                                    <div class="cols-sm-10">
+                                        <form class="form-inline">
+                                            <label for="cantMujeres">Hombres + Mujeres</label>
+                                            <div class="input-group spinner">
+                                                <input value={{cantMujeres+cantHombres}} type="text" class="form-control input-sm" readonly name="cantPersonas" id="cantPersonas"
+                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="2">
+                                                <div class="input-group-btn-vertical">
+                                                    <!--<button id="addW" (click)="plusWoman1()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>-->
+                                                    <!--<button id="lessW" (click)="lessWoman()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>-->
+                                                </div>
+                                            </div>
+                                            <label for="cantMujeres">Salen</label>
+                                            <div class="input-group spinner">
+                                                <input [(ngModel)]="cantSalen" type="text" class="form-control input-sm" name="cantSalen" id="cantSalen" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                                    maxlength={{cantMujeres+cantHombres}} readonly>
+                                                <div class="input-group-btn-vertical">
+                                                    <button (click)="plusTotal()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                    <button (click)="lessTotal()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Resumen consumo -->
+                                <div class="form-group">
+                                    <label for="tabla" class="cols-sm-2 control-label">Resumen Consumo</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <!-- Tabla de Resumen consumo -->
+                                            <div class="container">
+                                                <p>A continuacion se muestran un informe detallado del consumo:</p>
+                                                <table class="table table-striped" style="max-width: 46%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Cantidad</th>
+                                                            <th style="text-align: center">Descripcion</th>
+                                                            <th style="text-align: center">Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align: center">
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Producto 1</td>
+                                                            <td>3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Producto 2</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Producto 3</td>
+                                                            <td>5</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Total a pagar -->
+                                <div style="text-align: right">
+                                    <form class="form-inline">
+                                        <label for="totalPagar" class="cols-sm-2 control-label">Total a pagar. $.</label>
+                                        <input type="text" class="form-control" name="totalPagar" id="totalPagar" readonly/>
+                                    </form>
+                                </div>
+                                <br>
+                                <div class="form-group" style="text-align: center">
+                                    <button (click)="showDialogPrint = !showDialogPrint; doRobot()" class="btn btn-primary" id="basic-addonPrint">Aceptar</button>
+                                    <app-dialog [(visible)]="showDialogPrint" (visibleChange)="change($event)" #dialog="dialog">
+                                        <br>
+                                        <h3 style="text-align: center">Imprimiendo...</h3>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:100%">
+                                                100%
+                                            </div>
+                                        </div>
+                                    </app-dialog>
+                                </div>
+                            </div>
+                        </div>
+                    </ngui-tab>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--right DIV-->
+    <div class="right" id="right">
+        <label class="cols-sm-2 control-label">Canasta</label>
+    </div>
+</div>

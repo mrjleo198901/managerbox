@@ -14,15 +14,15 @@
 
       <ul class="nav navbar-nav navbar-left">
         <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a [routerLink]="['/dashboard']">Administrar</a></li>
+          <a [routerLink]="['/administracion']">Administrar</a></li>
         <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a [routerLink]="['/dashboard']">Personal</a></li>
+          <a [routerLink]="['/personal']">Personal</a></li>
         <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a [routerLink]="['/card']">Atencion</a></li>
         <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a [routerLink]="['/dashboard']">Facturacion</a></li>
+          <a [routerLink]="['/facturacion']">Facturacion</a></li>
         <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a [routerLink]="['/dashboard']">Clientes</a></li>
+          <a [routerLink]="['/clientes']">Clientes</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

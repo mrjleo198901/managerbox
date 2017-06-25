@@ -1,5 +1,5 @@
 import { Component, enableProdMode } from '@angular/core';
-import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+//import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 enableProdMode();
 
 @Component({
@@ -8,9 +8,9 @@ enableProdMode();
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  date: DateModel;
+  /*date: DateModel;
   options: DatePickerOptions;
   constructor() {
     this.options = new DatePickerOptions();
-  }
+  }*/
 }

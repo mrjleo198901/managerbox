@@ -19,16 +19,22 @@ import { AuthGuard } from './guards/auth.guard';
 import { CardComponent } from './components/card/card.component';
 import { NguiTabModule } from '@ngui/tab';
 import { DialogComponent } from './components/dialogLogin/dialog.component';
-import { DatePickerModule } from 'ng2-datepicker';
-
-//import { Alert } from './ng2-modal-master/src/components/ng2-modal/alert'
-//import { Modal } from './ng2-modal-master/src/components/ng2-modal/modal'
+import { FacturacionComponent } from './components/facturacion/facturacion.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { PersonalComponent } from './components/personal/personal.component';
+import { AdministracionComponent } from './components/administracion/administracion.component';
+//import { DatePickerModule } from 'ng2-datepicker';
+//import {DatePickerModule} from 'ng2-datepicker-bootstrap';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'card', component: CardComponent, canActivate: [AuthGuard] },
+  { path: 'facturacion', component: FacturacionComponent, canActivate: [AuthGuard] },
+  { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
+  { path: 'personal', component: PersonalComponent, canActivate: [AuthGuard] },
+  { path: 'administracion', component: AdministracionComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ]
@@ -43,7 +49,11 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     CardComponent,
-    DialogComponent
+    DialogComponent,
+    FacturacionComponent,
+    ClientesComponent,
+    PersonalComponent,
+    AdministracionComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +61,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule,
-    NguiTabModule,
-    DatePickerModule 
+    NguiTabModule
     //Angular2FontawesomeModule
   ],
   providers: [ValidateService, AuthService, AuthGuard],

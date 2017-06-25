@@ -8,19 +8,20 @@
           <!-- Nav tabs -->
           <div class="tabs">
             <ul class="nav nav-tabs" role="tablist">
-              <div index="open">
+              <div index="open" (click)="changeTabOpen()">
                 <li role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">Abrir</a></li>
               </div>
-              <div index="close">
+              <div index="close" (click)="changeTabClose()">
                 <li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Cerrar</a></li>
               </div>
             </ul>
           </div>
           <!-- Tab panes -->
           <div class="tab-content tabs">
-
+            <!-- *******************APERTURA***********************-->
             <div role="tabpanel" contents="open">
               <h3>Apertura de tarjeta de cosumo</h3>
+              <!-- Validacion Tarjeta -->
               <div class="form-group">
                 <label for="numero" class="cols-sm-2 control-label">Numero de tarjeta</label>
                 <div class="cols-sm-10">
@@ -33,6 +34,34 @@
                   </div>
                 </div>
               </div>
+              <!-- Cantidad de personas -->
+              <div class="form-group">
+                <label for="cantMujeres" class="cols-sm-2 control-label">Cantidad de personas</label>
+                <div class="cols-sm-10">
+                  <form class="form-inline">
+                    <label for="cantMujeres">Nro. Mujeres</label>
+                    <div class="input-group spinner">
+                      <input [(ngModel)]="cantMujeres" type="text" class="form-control input-sm" name="cantMujeres" id="cantMujeres" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                        maxlength="2">
+                      <div class="input-group-btn-vertical">
+                        <button id="addW" (click)="plusWoman1()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                        <button id="lessW" (click)="lessWoman()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                      </div>
+                    </div>
+                    <label for="cantHombres">Nro. Hombres</label>
+                    <div class="input-group spinner">
+                      <input [(ngModel)]="cantHombres" type="number" class="form-control input-sm" name="cantHombres" id="cantHombres" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        maxlength="2" min="0">
+                      <div class="input-group-btn-vertical">
+                        <button id="addM" (click)="plusMan()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                        <button id="lessM" (click)="lessMan()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+              <!-- Control Cliente-->
               <div class="form-group">
                 <label for="cedula" class="cols-sm-2 control-label">CI. Cliente</label>
                 <div class="cols-sm-10">
@@ -40,81 +69,207 @@
                     <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                     <input [(ngModel)]="cedula" maxlength="10" type="text" class="form-control" name="cedula" id="cedula" placeholder="CI. del cliente, sin guion (-)"
                       onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <span class="input-group-addon" id="basic-addon3"><i class="fa fa-search" aria-hidden="true"></i></span>
-                    <span class="input-group-addon" id="basic-addon4"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span (click)="checkClient()" class="input-group-addon" id="basic-addon3"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <span (click)="showDialog = !showDialog" class="input-group-addon" id="basic-addon4"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <app-dialog [(visible)]="showDialog" (visibleChange)="change($event)" #dialog="dialog">
+                      <h3>
+                        Registrar Cliente
+                      </h3>
+                      <div class="form-group">
+                        <!-- ID Tarjeta -->
+                        <label class="cols-sm-2 control-label" for="card" style="display: inline-block">Tarjeta Nro.</label>
+                        <input type="text" [(ngModel)]="cardNumber" id="card" name="card" class="form-control input-sm">
+                      </div>
+                      <div class="form-group">
+                        <!-- Cedula -->
+                        <label class="cols-sm-2 control-label" for="ci" style="display: inline-block">Cedula</label>
+                        <input type="text" [(ngModel)]="cedula" id="ci" name="ci" placeholder="Cedula del cliente" class="form-control input-sm">
+                      </div>
+                      <div class="form-group">
+                        <!-- Nombre -->
+                        <label class="cols-sm-2 control-label" for="username">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente" class="form-control  input-sm">
+                      </div>
+                      <div class="form-group">
+                        <!-- Apellido -->
+                        <label class="cols-sm-2 control-label" for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Apellido del cliente" class="form-control  input-sm">
+                      </div>
+                      <div class="form-group">
+                        <!-- Telefono -->
+                        <label class="cols-sm-2 control-label" for="telefono">Telefono</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Telefono del cliente" class="form-control  input-sm">
+                      </div>
+                      <div class="form-group">
+                        <!-- E-mail -->
+                        <label class="control-label" for="email">E-mail</label>
+                        <input type="text" id="email" name="email" placeholder="Correo del cliente" class="form-control  input-sm">
+                      </div>
+                      <div class="form-group">
+                        <!-- Fecha de nacimiento -->
+                        <label class="control-label" for="fecha">Fecha de nacimiento</label>
+                        <input type="text" id="fecha" name="fecha" placeholder="Cumpleaños del cliente" class="form-control  input-sm">
+                      </div>
+                      <div class="form-group">
+                        <!-- Sexo -->
+                        <label class="control-label" for="fecha">Sexo</label>
+                        <input type="text" id="sexo" name="sexo" placeholder="Sexo del cliente" class="form-control  input-sm">
+                      </div>
+                      <br>
+                      <!-- Button -->
+                      <div class="form-group" style="text-align: center">
+                        <button class="btn btn-primary">Registrar</button>
+                        <button class="btn btn-default">Cancelar</button>
+                      </div>
+                    </app-dialog>
+                  </div>
+                </div>
+              </div>
+              <!-- Promociones -->
+              <div class="form-group">
+                <label for="tabla" class="cols-sm-2 control-label">Promociones activas</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <!-- Tabla de Promociones -->
+                    <div class="container">
+                      <p>A continuacion se muestran las promociones activas, creadas por el admin:</p>
+                      <table class="table table-striped" style="max-width: 46%">
+                        <thead>
+                          <tr>
+                            <th style="text-align: center">Tipo</th>
+                            <th style="text-align: center">Descripcion</th>
+                            <th style="text-align: center">Cantidad</th>
+                          </tr>
+                        </thead>
+                        <tbody style="text-align: center">
+                          <tr>
+                            <td>1</td>
+                            <td>Promocion 1</td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Promocion 2</td>
+                            <td>8</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Promocion 3</td>
+                            <td>5</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" style="text-align: center">
+                <button class="btn btn-primary">Ingresar</button>
+                <button class="btn btn-default">Cancelar</button>
+              </div>
+            </div>
+            <!-- *******************CIERRE***********************-->
+            <div role="tabpanel" contents="close">
+              <h3>Cierre de tarjera de consumo</h3>
+              <!-- Verificacion de consumo -->
+              <div class="form-group">
+                <label for="numeroS" class="cols-sm-2 control-label">Numero de tarjeta</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
+                    <input [(ngModel)]="cardNumberS" (ngModelChange)="onChange($event)" (click)="$event.target.select()" type="text" class="form-control"
+                      name="numeroS" id="numeroS" placeholder="Codigo unico de tarjeta" />
+                    <span class="input-group-addon" id="basic-addon5"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span class="input-group-addon" id="basic-addon6"><i class="fa fa-times" aria-hidden="true"></i></span>
                   </div>
                 </div>
               </div>
 
-            </div>
-
-            <div role="tabpanel" contents="close">
-              <h3>Section 2</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada
-                lorem. Nullam faucibus lorem at eros consectetur lobortis.</p>
-
-              <button (click)="showDialog = !showDialog" class="btn">Open</button>
-
-              <app-dialog [(visible)]="showDialog" (visibleChange)="change($event)" #dialog="dialog">
-                <h3>
-                  Registrar Cliente
-                </h3>
-                <div class="form-group">
-                  <!-- ID Tarjeta -->
-                  <label class="cols-sm-2 control-label" for="card" style="display: inline-block">Tarjeta Nro.</label>
-                  <input type="text" [(ngModel)]="cardNumber" id="card" name="card" class="form-control input-sm">
+              <!-- Cantidad de personas -->
+              <div class="form-group">
+                <label for="cantPersonas" class="cols-sm-2 control-label">Cantidad de personas</label>
+                <div class="cols-sm-10">
+                  <form class="form-inline">
+                    <label for="cantMujeres">Hombres + Mujeres</label>
+                    <div class="input-group spinner">
+                      <input value={{cantMujeres+cantHombres}} type="text" class="form-control input-sm" readonly name="cantPersonas" id="cantPersonas"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="2">
+                      <div class="input-group-btn-vertical">
+                        <!--<button id="addW" (click)="plusWoman1()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>-->
+                        <!--<button id="lessW" (click)="lessWoman()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>-->
+                      </div>
+                    </div>
+                    <label for="cantMujeres">Salen</label>
+                    <div class="input-group spinner">
+                      <input [(ngModel)]="cantSalen" type="text" class="form-control input-sm" name="cantSalen" id="cantSalen" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                        maxlength={{cantMujeres+cantHombres}} readonly>
+                      <div class="input-group-btn-vertical">
+                        <button (click)="plusTotal()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                        <button (click)="lessTotal()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                <div class="form-group">
-                  <!-- Cedula -->
-                  <label class="cols-sm-2 control-label" for="ci" style="display: inline-block">Cedula</label>
-                  <input type="text" [(ngModel)]="cedula" id="ci" name="ci" placeholder="Cedula del cliente" class="form-control input-sm">
+              </div>
+              <!-- Resumen consumo -->
+              <div class="form-group">
+                <label for="tabla" class="cols-sm-2 control-label">Resumen Consumo</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <!-- Tabla de Resumen consumo -->
+                    <div class="container">
+                      <p>A continuacion se muestran un informe detallado del consumo:</p>
+                      <table class="table table-striped" style="max-width: 46%">
+                        <thead>
+                          <tr>
+                            <th style="text-align: center">Cantidad</th>
+                            <th style="text-align: center">Descripcion</th>
+                            <th style="text-align: center">Total</th>
+                          </tr>
+                        </thead>
+                        <tbody style="text-align: center">
+                          <tr>
+                            <td>1</td>
+                            <td>Producto 1</td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Producto 2</td>
+                            <td>8</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Producto 3</td>
+                            <td>5</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <!-- Nombre -->
-                  <label class="cols-sm-2 control-label" for="username">Nombre</label>
-                  <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente" class="form-control  input-sm">
-                </div>
-                <div class="form-group">
-                  <!-- Apellido -->
-                  <label class="cols-sm-2 control-label" for="apellido">Apellido</label>
-                  <input type="text" id="apellido" name="apellido" placeholder="Apellido del cliente" class="form-control  input-sm">
-                </div>
-                <div class="form-group">
-                  <!-- Telefono -->
-                  <label class="cols-sm-2 control-label" for="telefono">Telefono</label>
-                  <input type="text" id="telefono" name="telefono" placeholder="Telefono del cliente" class="form-control  input-sm">
-                </div>
-                <div class="form-group">
-                  <!-- E-mail -->
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" name="email" placeholder="Correo del cliente" class="form-control  input-sm">
-                </div>
-                <div class="form-group">
-                  <!-- Fecha de nacimiento -->
-                  <label class="control-label" for="fecha">Fecha de nacimiento</label>
-                  <!--<input type="text" id="fecha" name="fecha" placeholder="Cumpleaños del cliente" class="form-control  input-sm">-->
-                  <ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker>
-                </div>
-                <div class="form-group">
-                  <!-- Sexo -->
-                  <label class="control-label" for="fecha">Sexo</label>
-                  <input type="text" id="sexo" name="sexo" placeholder="Sexo del cliente" class="form-control  input-sm">
-                </div>
-                <br>
-                <!-- Button -->
-                <div class="form-group" style="text-align: center">
-                  <button class="btn btn-primary">Registrar</button>
-                  <button class="btn btn-default">Cancelar</button>
-                </div>
-
-
-
-              </app-dialog>
-
-
-
-
-
+              </div>
+              <!-- Total a pagar -->
+              <div style="text-align: right">
+                <form class="form-inline">
+                  <label for="totalPagar" class="cols-sm-2 control-label">Total a pagar. $.</label>
+                  <input type="text" class="form-control" name="totalPagar" id="totalPagar" readonly/>
+                </form>
+              </div>
+              <br>
+              <div class="form-group" style="text-align: center">
+                <button (click)="showDialogPrint = !showDialogPrint; doRobot()" class="btn btn-primary" id="basic-addonPrint">Aceptar</button>
+                <app-dialog [(visible)]="showDialogPrint" (visibleChange)="change($event)" #dialog="dialog">
+                  <br>
+                  <h3 style="text-align: center">Imprimiendo...</h3>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                      aria-valuemax="100" style="width:100%">
+                      100%
+                    </div>
+                  </div>
+                </app-dialog>
+              </div>
             </div>
           </div>
         </ngui-tab>

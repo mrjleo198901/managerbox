@@ -1,5 +1,5 @@
-import { Component, OnInit, Pipe } from '@angular/core';
-import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+import { Component, OnInit } from '@angular/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-card',
@@ -9,8 +9,9 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 export class CardComponent implements OnInit {
 
   showDialog = false;
-  date: DateModel;
-  options: DatePickerOptions;
+  showDialogPrint = false;
+  //date: DateModel;
+  //options: DatePickerOptions;
   change($event) {
     //alert($event)
   }
@@ -18,6 +19,7 @@ export class CardComponent implements OnInit {
   cardNumber: String;
   validCard: String;
   baseColor: String;
+  validCedula: String;
   cedula: String;
   nombre: String;
   apellido: String;
@@ -25,16 +27,29 @@ export class CardComponent implements OnInit {
   email: String;
   fechaNacimiento: Date;
   sexo: String;
-  constructor() {
-    this.options = new DatePickerOptions();
+  cantHombres: number;
+  cantMujeres: number;
+  cantSalen: number;
+  selectedTab: number;
+
+  constructor(private flashMessage: FlashMessagesService) {
+    //this.options = new DatePickerOptions();
     this.cardNumber = "";
     this.validCard = "ñ1006771_";
     //Default component color rgb(248, 245, 240)
     this.baseColor = "#f8f5f0";
+    this.validCedula = "0502926819";
+    this.selectedTab = 1;
   }
 
   ngOnInit() {
     document.getElementById('numero').focus();
+    document.getElementById('basic-addon1').style.backgroundColor = '#f8f5f0';
+
+    this.cantHombres = 1;
+    this.cantMujeres = 1;
+    this.cantSalen = 0;
+
   }
 
   onChange() {
@@ -54,6 +69,62 @@ export class CardComponent implements OnInit {
 
       }
     }
+  }
+  plusWoman1() {
+    if (this.cantMujeres < 100)
+      this.cantMujeres++;
+  }
+  checkClient() {
+    console.log("asad")
+    if (this.cedula === this.validCedula) {
+      document.getElementById('basic-addon3').style.backgroundColor = '#088A08';
+    } else {
+      document.getElementById('basic-addon3').style.backgroundColor = '#FE2E2E';
+    }
+  }
+  lessWoman() {
+    if (this.cantMujeres > 0)
+      this.cantMujeres--;
+  }
+  lessMan() {
+    if (this.cantHombres > 0)
+      this.cantHombres--;
+  }
+  plusMan() {
+    if (this.cantHombres < 100)
+      this.cantHombres++;
+  }
+  lessTotal() {
+    if (this.cantSalen > 0)
+      this.cantSalen--;
+  }
+  plusTotal() {
+    if (this.cantSalen < (this.cantHombres + this.cantMujeres))
+      this.cantSalen++;
+  }
+  changeTabOpen() {
+    this.selectedTab = 1;
+    setTimeout(function () {
+      let v = document.getElementById('numero');
+      v.click();
+    }, 200);
+
+    //console.log(this.selectedTab)
+  }
+  changeTabClose() {
+    this.selectedTab = 2;
+    setTimeout(function () {
+      let v = document.getElementById('numeroS');
+      v.click();
+    }, 200);
+    //console.log(this.selectedTab)
+  }
+  doRobot() {
+    console.log("robot")
+    setTimeout(function () {
+      let v = document.getElementById('totalPagar');
+      v.click();
+    }, 1000);
   }
 }
 
