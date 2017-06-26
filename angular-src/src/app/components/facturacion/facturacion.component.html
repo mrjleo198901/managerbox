@@ -31,35 +31,26 @@
                                 <h3>Tipo de producto 1</h3>
                                 <!-- Promociones -->
                                 <div class="form-group">
-                                    <label for="tabla" class="cols-sm-2 control-label">Promociones activas</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
                                             <!-- Tabla de Promociones -->
                                             <div class="container">
-                                                <p>A continuacion se muestran las promociones activas, creadas por el admin:</p>
-                                                <table class="table table-striped" style="max-width: 46%">
+                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                                <table class="table table-striped" style="max-width: 36%">
                                                     <thead>
                                                         <tr>
-                                                            <th style="text-align: center">Tipo</th>
                                                             <th style="text-align: center">Descripcion</th>
-                                                            <th style="text-align: center">Cantidad</th>
+                                                            <th style="text-align: center">Precio</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody style="text-align: center">
                                                         <tr>
-                                                            <td>1</td>
-                                                            <td>Promocion 1</td>
-                                                            <td>3</td>
+                                                            <td>Producto 1</td>
+                                                            <td>12.00</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>2</td>
-                                                            <td>Promocion 2</td>
-                                                            <td>8</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Promocion 3</td>
-                                                            <td>5</td>
+                                                            <td>Producto 2</td>
+                                                            <td>50.00</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -68,80 +59,31 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- *******************CIERRE***********************-->
+                            <!-- *******************TIPO2***********************-->
                             <div role="tabpanel" contents="tipo2">
-                                <h3>Cierre de tarjera de consumo</h3>
-                                <!-- Verificacion de consumo -->
+                                <h3>Tipo de producto 2</h3>
+                                <!-- Promociones -->
                                 <div class="form-group">
-                                    <label for="numeroS" class="cols-sm-2 control-label">Numero de tarjeta</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
-                                            <input [(ngModel)]="cardNumberS" (ngModelChange)="onChange($event)" (click)="$event.target.select()" type="text" class="form-control"
-                                                name="numeroS" id="numeroS" placeholder="Codigo unico de tarjeta" />
-                                            <span class="input-group-addon" id="basic-addon5"><i class="fa fa-check" aria-hidden="true"></i></span>
-                                            <span class="input-group-addon" id="basic-addon6"><i class="fa fa-times" aria-hidden="true"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Cantidad de personas -->
-                                <div class="form-group">
-                                    <label for="cantPersonas" class="cols-sm-2 control-label">Cantidad de personas</label>
-                                    <div class="cols-sm-10">
-                                        <form class="form-inline">
-                                            <label for="cantMujeres">Hombres + Mujeres</label>
-                                            <div class="input-group spinner">
-                                                <input value={{cantMujeres+cantHombres}} type="text" class="form-control input-sm" readonly name="cantPersonas" id="cantPersonas"
-                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="2">
-                                                <div class="input-group-btn-vertical">
-                                                    <!--<button id="addW" (click)="plusWoman1()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>-->
-                                                    <!--<button id="lessW" (click)="lessWoman()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>-->
-                                                </div>
-                                            </div>
-                                            <label for="cantMujeres">Salen</label>
-                                            <div class="input-group spinner">
-                                                <input [(ngModel)]="cantSalen" type="text" class="form-control input-sm" name="cantSalen" id="cantSalen" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                                                    maxlength={{cantMujeres+cantHombres}} readonly>
-                                                <div class="input-group-btn-vertical">
-                                                    <button (click)="plusTotal()" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-                                                    <button (click)="lessTotal()" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- Resumen consumo -->
-                                <div class="form-group">
-                                    <label for="tabla" class="cols-sm-2 control-label">Resumen Consumo</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <!-- Tabla de Resumen consumo -->
+                                            <!-- Tabla de Promociones -->
                                             <div class="container">
-                                                <p>A continuacion se muestran un informe detallado del consumo:</p>
-                                                <table class="table table-striped" style="max-width: 46%">
+                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                                <table class="table table-striped" style="max-width: 36%">
                                                     <thead>
                                                         <tr>
-                                                            <th style="text-align: center">Cantidad</th>
                                                             <th style="text-align: center">Descripcion</th>
-                                                            <th style="text-align: center">Total</th>
+                                                            <th style="text-align: center">Precio</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody style="text-align: center">
                                                         <tr>
-                                                            <td>1</td>
-                                                            <td>Producto 1</td>
-                                                            <td>3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Producto 2</td>
-                                                            <td>8</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
                                                             <td>Producto 3</td>
-                                                            <td>5</td>
+                                                            <td>15.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Producto 4</td>
+                                                            <td>60.00</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -149,26 +91,71 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Total a pagar -->
-                                <div style="text-align: right">
-                                    <form class="form-inline">
-                                        <label for="totalPagar" class="cols-sm-2 control-label">Total a pagar. $.</label>
-                                        <input type="text" class="form-control" name="totalPagar" id="totalPagar" readonly/>
-                                    </form>
-                                </div>
-                                <br>
-                                <div class="form-group" style="text-align: center">
-                                    <button (click)="showDialogPrint = !showDialogPrint; doRobot()" class="btn btn-primary" id="basic-addonPrint">Aceptar</button>
-                                    <app-dialog [(visible)]="showDialogPrint" (visibleChange)="change($event)" #dialog="dialog">
-                                        <br>
-                                        <h3 style="text-align: center">Imprimiendo...</h3>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                                                aria-valuemax="100" style="width:100%">
-                                                100%
+                            </div>
+                            <!-- *******************TIPO3***********************-->
+                            <div role="tabpanel" contents="tipo3">
+                                <h3>Tipo de producto 3</h3>
+                                <!-- Promociones -->
+                                <div class="form-group">
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <!-- Tabla de Promociones -->
+                                            <div class="container">
+                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                                <table class="table table-striped" style="max-width: 36%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Descripcion</th>
+                                                            <th style="text-align: center">Precio</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align: center">
+                                                        <tr>
+                                                            <td>Producto 5</td>
+                                                            <td>6.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Producto 6</td>
+                                                            <td>8.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    </app-dialog>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- *******************TIPO4***********************-->
+                            <div role="tabpanel" contents="tipo4">
+                                <h3>Tipo de producto 4</h3>
+                                <!-- Promociones -->
+                                <div class="form-group">
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <!-- Tabla de Promociones -->
+                                            <div class="container">
+                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                                <table class="table table-striped" style="max-width: 36%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Descripcion</th>
+                                                            <th style="text-align: center">Precio</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align: center">
+                                                        <tr>
+                                                            <td>Producto 7</td>
+                                                            <td>20.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Producto 8</td>
+                                                            <td>90.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +165,82 @@
         </div>
     </div>
     <!--right DIV-->
-    <div class="right" id="right">
-        <label class="cols-sm-2 control-label">Canasta</label>
+    <div class="right" id="right" style="width: 220px">
+        <form class="form-inline">
+            <h4 style="text-align: center">Productos Seleccionados</h4>
+        </form>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <form class="form-inline">
+                    <label for="addProd1" style="display: inline-block">Producto 1</label>
+                    <span style="display: inline-block" (click)="addProd1()" class="input-group-addon" id="addProd1" style="width: 20px">
+                    <i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span style="display: inline-block" (click)="lessProd1()" class="input-group-addon" id="addProd2" style="width: 20px">
+                    <i class="fa fa-minus" aria-hidden="true"></i></span>
+                    <span style="display: inline-block" class="input-group-addon" style="width: 20px">
+                    <font size="5">{{cant1}}</font></span>
+                </form>
+            </li>
+            <li class="list-group-item">
+                <form class="form-inline">
+                    <label for="addProd1" style="display: inline-block">Producto 2</label>
+                    <span style="display: inline-block" (click)="addProd2()" class="input-group-addon" id="addProd2" style="width: 20px">
+                    <i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span style="display: inline-block" (click)="lessProd2()" class="input-group-addon" id="addProd3" style="width: 20px">
+                    <i class="fa fa-minus" aria-hidden="true"></i></span>
+                    <span style="display: inline-block" class="input-group-addon" style="width: 20px">
+                    <font size="5">{{cant2}}</font></span>
+                </form>
+            </li>
+            <li class="list-group-item">
+                <form class="form-inline">
+                    <label for="addProd1" style="display: inline-block">Producto 3</label>
+                    <span style="display: inline-block" (click)="addProd3()" class="input-group-addon" id="addProd4" style="width: 20px">
+                    <i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span style="display: inline-block" (click)="lessProd3()" class="input-group-addon" id="addProd5" style="width: 20px">
+                    <i class="fa fa-minus" aria-hidden="true"></i></span>
+                    <span style="display: inline-block" class="input-group-addon" style="width: 20px">
+                    <font size="5">{{cant3}}</font></span>
+                </form>
+            </li>
+        </ul>
+        <button (click)="showDialogConfirmar = !showDialogConfirmar; doRobot()" class="btn btn-primary" style="width: 100%">Confirmar</button>
+        <!--Control venta(Cajero % tarjeta)-->
+        <app-dialog [(visible)]="showDialogConfirmar" (visibleChange)="change($event)" #dialog="dialog">
+            <h3 class="page-header" style="text-align: center">Confirmacion de venta</h3>
+            <!-- Validacion Tarjeta -->
+            <div class="form-group">
+                <label for="cardNumber" class="cols-sm-2 control-label">Numero de tarjeta</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
+                        <input [(ngModel)]="cardNumber" (ngModelChange)="onChange($event)" (click)="$event.target.select()" type="text" class="form-control"
+                            name="cardNumber" id="cardNumber" placeholder="Codigo unico de tarjeta" />
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <span class="input-group-addon" id="basic-addon2"><i class="fa fa-times" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Control cajero -->
+            <div class="form-group">
+                <div class="col-sm-12 col-xs-12">
+                    <label>Control mesero</label>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <select class="form-control"></select>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <input [(ngModel)]="password" type="password" class="form-control" name="password" id="password" placeholder="Ingresa tu clave de usuario"
+                    />
+                    <br>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <button class="btn btn-primary" style="width: 100%">CONFIRMAR</button>
+            </div>
+
+
+        </app-dialog>
     </div>
 </div>

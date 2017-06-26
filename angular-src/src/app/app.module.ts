@@ -23,6 +23,10 @@ import { FacturacionComponent } from './components/facturacion/facturacion.compo
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { PersonalComponent } from './components/personal/personal.component';
 import { AdministracionComponent } from './components/administracion/administracion.component';
+import { TabsDemoComponent } from './com-impl/tabs/tabs-demo.component';
+import { TabsModule } from './com/tabs/tabs.module';
+import { AlertDemoComponent } from './com-impl/alert/alert-demo.component';
+import { AlertModule } from './com/alert/alert.module';
 //import { DatePickerModule } from 'ng2-datepicker';
 //import {DatePickerModule} from 'ng2-datepicker-bootstrap';
 
@@ -53,7 +57,9 @@ const appRoutes: Routes = [
     FacturacionComponent,
     ClientesComponent,
     PersonalComponent,
-    AdministracionComponent
+    AdministracionComponent,
+    TabsDemoComponent,
+    AlertDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,22 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule,
-    NguiTabModule
+    NguiTabModule,
+    TabsModule,
+    AlertModule,
+    RouterModule.forRoot([
+      {
+        path: 'tabs',
+        component: TabsDemoComponent
+      }
+    ]),
+    RouterModule.forRoot([
+      {
+        path: 'alert',
+        component: AlertDemoComponent
+      }
+    ])
+
     //Angular2FontawesomeModule
   ],
   providers: [ValidateService, AuthService, AuthGuard],

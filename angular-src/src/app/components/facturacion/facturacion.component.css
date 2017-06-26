@@ -113,6 +113,9 @@ a:hover,a:focus{
     width:100px;
 }*/
 #container{width:100%;}
-#left{float:left;width:90%;}
-#right{float:right;width:100px;}
-#center{margin:0 auto;width:20px;}
+#left{float:left;width:80%;}
+#right{
+    float:right;
+    /*width:100px;*/
+    }
+#center{margin:0 auto;width:5px;}
