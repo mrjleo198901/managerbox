@@ -27,6 +27,8 @@ import { TabsDemoComponent } from './com-impl/tabs/tabs-demo.component';
 import { TabsModule } from './com/tabs/tabs.module';
 import { AlertDemoComponent } from './com-impl/alert/alert-demo.component';
 import { AlertModule } from './com/alert/alert.module';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+//import { Ng2TableModule } from 'ng2-table/ng2-table';
 //import { DatePickerModule } from 'ng2-datepicker';
 //import {DatePickerModule} from 'ng2-datepicker-bootstrap';
 
@@ -60,6 +62,7 @@ const appRoutes: Routes = [
     AdministracionComponent,
     TabsDemoComponent,
     AlertDemoComponent
+    //Ng2TableModule
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ const appRoutes: Routes = [
     NguiTabModule,
     TabsModule,
     AlertModule,
+    Ng2SmartTableModule,
     RouterModule.forRoot([
       {
         path: 'tabs',

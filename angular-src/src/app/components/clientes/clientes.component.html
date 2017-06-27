@@ -1,7 +1,7 @@
 <h2 class="page-header">Clientes</h2>
 <p>Welcome to your dashboard</p>
 
-<div (click)="$event.preventDefault()">
+<!--<div (click)="$event.preventDefault()">
     <p>Select a tab by setting active binding to true:</p>
     <p>
         <button type="button" class="btn btn-primary btn-sm" (click)="tabses[0].active = true">Select second tab</button>
@@ -42,11 +42,6 @@
     </tabset>
 
     <hr />
+</div>-->
 
-    <p>My tab</p>
-    <tabset [type]="pills" [justified]="true">
-        <tab heading="Justified">Justified content</tab>
-        <tab heading="SJ">Short Labeled Justified content</tab>
-        <tab heading="Long Justified">Long Labeled Justified content</tab>
-    </tabset>
-</div>
+<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>

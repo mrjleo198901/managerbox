@@ -7,6 +7,33 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  settings = {
+    actions: false,
+    columns: {
+      tipo: {
+        title: 'Tipo', type: 'html', filter: false, valuePrepareFunction: (value) => { return '<div class="wide">' + value + '</div>'; }
+      },
+      descripcion: {
+        width: '100px',
+        title: 'Descripcion', type: 'html', filter: false, valuePrepareFunction: (value) => { return '<div class="wide">' + value + '</div>'; }
+      }
+    }
+  };
+
+  data = [
+    {
+      tipo: 1,
+      descripcion: "tipo1"
+    },
+    {
+      tipo: 2,
+      descripcion: "tipo2"
+    },
+    {
+      tipo: 3,
+      descripcion: "tipo3"
+    }
+  ];
 
   showDialog = false;
   showDialogPrint = false;
@@ -49,6 +76,11 @@ export class CardComponent implements OnInit {
     this.cantHombres = 1;
     this.cantMujeres = 1;
     this.cantSalen = 0;
+    //document.getElementsByClassName('Tipo')['0'].style.width = '100px'
+    //default font-size 14px
+    /*var el = document.getElementById('labelNumero');
+    var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+    console.log(style)*/
 
   }
 

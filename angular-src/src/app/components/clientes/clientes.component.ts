@@ -6,29 +6,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit {
+  settings = {
+    columns: {
+      id: {
+        title: 'ID',
 
-  constructor() { }
+      },
+      name: {
+        title: 'Full Name'
+      },
+      username: {
+        title: 'User Name'
+      },
+      email: {
+        title: 'Email'
+      }
+    }
+  };
 
-  ngOnInit() {
-  }
-  public tabses: Array<any> = [
-    { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
-    { title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: true },
-    { title: 'Dynamic Title 3', content: 'Dynamic content 3', removable: true },
-    { title: 'Dynamic Title 4', content: 'Dynamic content 4', customClass: 'customClass' }
+  data = [
+    {
+      id: 1,
+      name: "Leanne Graham",
+      username: "Bret",
+      email: "Sincere@april.biz"
+    },
+    {
+      id: 2,
+      name: "Ervin Howell",
+      username: "Antonette",
+      email: "Shanna@melissa.tv"
+    },
+
+    // ... list of items
+
+    {
+      id: 11,
+      name: "Nicholas DuBuque",
+      username: "Nicholas.Stanton",
+      email: "Rey.Padberg@rosamond.biz"
+    }
   ];
 
-  public alertMe(): void {
-    setTimeout(function (): void {
-      alert('You\'ve selected the alert tab!');
-    });
-  };
+  public constructor() {
+  }
 
-  public setActiveTab(index: number): void {
-    this.tabses[index].active = true;
-  };
+  public ngOnInit(): void {
+  }
 
-  public removeTabHandler(/*tab:any*/): void {
-    console.log('Remove Tab handler');
-  };
 }
