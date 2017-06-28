@@ -17,7 +17,7 @@ import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { CardComponent } from './components/card/card.component';
-import { NguiTabModule } from '@ngui/tab';
+//import { NguiTabModule } from '@ngui/tab';
 import { DialogComponent } from './components/dialogLogin/dialog.component';
 import { FacturacionComponent } from './components/facturacion/facturacion.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
@@ -27,7 +27,7 @@ import { TabsDemoComponent } from './com-impl/tabs/tabs-demo.component';
 import { TabsModule } from './com/tabs/tabs.module';
 import { AlertDemoComponent } from './com-impl/alert/alert-demo.component';
 import { AlertModule } from './com/alert/alert.module';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
+//import { Ng2SmartTableModule } from 'ng2-smart-table';
 //import { Ng2TableModule } from 'ng2-table/ng2-table';
 //import { DatePickerModule } from 'ng2-datepicker';
 //import {DatePickerModule} from 'ng2-datepicker-bootstrap';
@@ -70,10 +70,10 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule,
-    NguiTabModule,
+  //  NguiTabModule,
     TabsModule,
     AlertModule,
-    Ng2SmartTableModule,
+    //Ng2SmartTableModule,
     RouterModule.forRoot([
       {
         path: 'tabs',

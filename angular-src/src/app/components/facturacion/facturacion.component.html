@@ -1,169 +1,158 @@
 <h2 class="page-header">Facturacion</h2>
 
-<div class="container">
+<div (click)="$event.preventDefault()">
     <!--left DIV-->
+
     <div class="left" id="left">
         <div class="row">
-            <div class="col-md-offset-3 col-md-6">
-                <div class="tab" role="tabpanel">
-                    <ngui-tab>
-                        <!-- Nav tabs -->
-                        <div class="tabs">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <div index="tipo1" (click)="changeTabTipoUno()">
-                                    <li role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">Tipo Producto 1</a></li>
-                                </div>
-                                <div index="tipo2" (click)="changeTabTipoDos()">
-                                    <li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Tipo Producto 2</a></li>
-                                </div>
-                                <div index="tipo3" (click)="changeTabTipoTres()">
-                                    <li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Tipo Producto 3</a></li>
-                                </div>
-                                <div index="tipo4" (click)="changeTabTipoCuatro()">
-                                    <li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Tipo Producto 4</a></li>
-                                </div>
-                            </ul>
-                        </div>
-                        <!-- Tab panes -->
-                        <div class="tab-content tabs">
-                            <!-- *******************TIPO 1***********************-->
-                            <div role="tabpanel" contents="tipo1">
-                                <h3>Tipo de producto 1</h3>
-                                <!-- Promociones -->
-                                <div class="form-group">
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <!-- Tabla de Promociones -->
-                                            <div class="container">
-                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
-                                                <table class="table table-striped" style="max-width: 36%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="text-align: center">Descripcion</th>
-                                                            <th style="text-align: center">Precio</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody style="text-align: center">
-                                                        <tr>
-                                                            <td>Producto 1</td>
-                                                            <td>12.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Producto 2</td>
-                                                            <td>50.00</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- *******************TIPO2***********************-->
-                            <div role="tabpanel" contents="tipo2">
-                                <h3>Tipo de producto 2</h3>
-                                <!-- Promociones -->
-                                <div class="form-group">
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <!-- Tabla de Promociones -->
-                                            <div class="container">
-                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
-                                                <table class="table table-striped" style="max-width: 36%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="text-align: center">Descripcion</th>
-                                                            <th style="text-align: center">Precio</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody style="text-align: center">
-                                                        <tr>
-                                                            <td>Producto 3</td>
-                                                            <td>15.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Producto 4</td>
-                                                            <td>60.00</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- *******************TIPO3***********************-->
-                            <div role="tabpanel" contents="tipo3">
-                                <h3>Tipo de producto 3</h3>
-                                <!-- Promociones -->
-                                <div class="form-group">
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <!-- Tabla de Promociones -->
-                                            <div class="container">
-                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
-                                                <table class="table table-striped" style="max-width: 36%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="text-align: center">Descripcion</th>
-                                                            <th style="text-align: center">Precio</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody style="text-align: center">
-                                                        <tr>
-                                                            <td>Producto 5</td>
-                                                            <td>6.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Producto 6</td>
-                                                            <td>8.00</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- *******************TIPO4***********************-->
-                            <div role="tabpanel" contents="tipo4">
-                                <h3>Tipo de producto 4</h3>
-                                <!-- Promociones -->
-                                <div class="form-group">
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <!-- Tabla de Promociones -->
-                                            <div class="container">
-                                                <p>La tipificacion de los productos ha sido creada por el administrador.</p>
-                                                <table class="table table-striped" style="max-width: 36%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="text-align: center">Descripcion</th>
-                                                            <th style="text-align: center">Precio</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody style="text-align: center">
-                                                        <tr>
-                                                            <td>Producto 7</td>
-                                                            <td>20.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Producto 8</td>
-                                                            <td>90.00</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
+
+            <tabset [justified]="true">
+                <!-- *******************TIPO 1***********************-->
+                <tab heading="Tipo 1">
+                    <hr>
+                    <h3 style="text-align: center">Tipo de producto 1</h3>
+                    <hr>
+                    <!-- Promociones -->
+                    <div class="form-group">
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <!-- Tabla de Promociones -->
+                                <div class="container">
+                                    <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                    <table class="table table-striped" style="max-width: 70%">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center">Descripcion</th>
+                                                <th style="text-align: center">Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="text-align: center">
+                                            <tr>
+                                                <td>Producto 1</td>
+                                                <td>12.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Producto 2</td>
+                                                <td>50.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </ngui-tab>
-                </div>
-            </div>
+                    </div>
+                </tab>
+                <!-- *******************TIPO2***********************-->
+                <tab heading="Tipo 2">
+                    <hr>
+                    <h3 style="text-align: center">Tipo de producto 2</h3>
+                    <hr>
+                    <!-- Produtos -->
+                    <div class="form-group">
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <!-- Tabla de Promociones -->
+                                <div class="container">
+                                    <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                    <table class="table table-striped" style="max-width: 70%">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center">Descripcion</th>
+                                                <th style="text-align: center">Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="text-align: center">
+                                            <tr>
+                                                <td>Producto 3</td>
+                                                <td>15.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Producto 4</td>
+                                                <td>60.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <!-- *******************TIPO3***********************-->
+                <tab heading="Tipo 3">
+                    <hr>
+                    <h3 style="text-align: center">Tipo de producto 3</h3>
+                    <hr>
+                    <!-- Promociones -->
+                    <div class="form-group">
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <!-- Tabla de Promociones -->
+                                <div class="container">
+                                    <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                    <table class="table table-striped" style="max-width: 70%">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center">Descripcion</th>
+                                                <th style="text-align: center">Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="text-align: center">
+                                            <tr>
+                                                <td>Producto 5</td>
+                                                <td>6.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Producto 6</td>
+                                                <td>8.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <!-- *******************TIPO4***********************-->
+                <tab heading="Tipo 4">
+                    <hr>
+                    <h3 style="text-align: center">Tipo de producto 4</h3>
+                    <hr>
+                    <!-- Promociones -->
+                    <div class="form-group">
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <!-- Tabla de Promociones -->
+                                <div class="container">
+                                    <p>La tipificacion de los productos ha sido creada por el administrador.</p>
+                                    <table class="table table-striped" style="max-width: 70%">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center">Descripcion</th>
+                                                <th style="text-align: center">Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="text-align: center">
+                                            <tr>
+                                                <td>Producto 7</td>
+                                                <td>20.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Producto 8</td>
+                                                <td>90.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </tab>
+            </tabset>
+
         </div>
     </div>
+
     <!--right DIV-->
     <div class="right" id="right" style="width: 220px">
         <form class="form-inline">
